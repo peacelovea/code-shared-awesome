@@ -3,6 +3,8 @@
   "displayName": "vsc-code-shared-awesome",
   "description": "",
   "version": "0.0.1",
+  "publisher": "showCode",
+  "repository": {},
   "engines": {
     "vscode": "^1.71.0"
   },
@@ -11,7 +13,8 @@
   ],
   "activationEvents": [
     "onCommand:vsc-code-shared-awesome.codeShow",
-    "onView:sidebar-codeShow-context"
+    "onView:sidebar-codeShow-context",
+    "*"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -37,6 +40,18 @@
         "command": "vsc-code-shared-awesome.codeShow",
         "title": "codeShow",
         "icon": "images/icon.svg"
+      },
+      {
+        "command": "extension.demo.openWebview",
+        "title": "打开WebView"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.demo.openWebview",
+        "key": "ctrl+f9",
+        "mac": "cmd+f9",
+        "when": "editorTextFocus"
       }
     ],
     "menus": {
@@ -53,6 +68,10 @@
           "when": "editorHasSelection",
           "command": "vsc-code-shared-awesome.codeShow",
           "group": "codeShow"
+        },
+        {
+          "command": "extension.demo.openWebview",
+          "group": "navigation"
         }
       ]
     }
@@ -68,7 +87,7 @@
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js"
   },
-  "devDependencies": {
+  "dependencies": {
     "@types/glob": "^7.2.0",
     "@types/mocha": "^9.1.1",
     "@types/node": "16.x",

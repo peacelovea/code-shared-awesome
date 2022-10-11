@@ -14,7 +14,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
   // 获取编辑区代码(全选)
   require("./treeView/sidebar")(context); // demo8 自定义侧边栏入口和面板
-
+  require("./webview")(context); // Webview
   let editor = vscode.window.activeTextEditor;
   let editorText = editor?.document.getText() || "";
   // 一次只允许一个 webview 存在
