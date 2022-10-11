@@ -116,73 +116,19 @@
 
 </html> -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.bootcdn.net/ajax/libs/wangeditor5/5.1.21/css/style.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcdn.net/ajax/libs/wangeditor5/5.1.21/index.min.js"></script>
-    <title>showCode</title>
-    <style>
-        #editor—wrapper {
-            border: 1px solid #ccc;
-            z-index: 100;
-            /* 按需定义 */
-        }
-
-        #toolbar-container {
-            border-bottom: 1px solid #ccc;
-        }
-
-        #editor-container {
-            height: 500px;
-        }
-    </style>
-
+    <title>Monaco Editor Demo</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="../../node_modules/monaco-editor/min/vs/loader.js"></script>
 
 </head>
 
 <body>
-    <div id="editor—wrapper">
-        <div id="toolbar-container">
-            <!-- 工具栏 -->
-        </div>
-        <div id="editor-container">
-            <!-- 编辑器 -->
-        </div>
-    </div>
-
-    
-    <script>
-        const { createEditor, createToolbar } = window.wangEditor
-
-        const editorConfig = {
-            placeholder: 'Type here...',
-            onChange(editor) {
-                const html = editor.getHtml()
-                console.log('editor content', html)
-                // 也可以同步到 <textarea>
-            }
-        }
-
-        const editor = createEditor({
-            selector: '#editor-container',
-            html: '<p><br></p>',
-            config: editorConfig,
-            mode: 'default', // or 'simple'
-        })
-
-        const toolbarConfig = {}
-
-        const toolbar = createToolbar({
-            editor,
-            selector: '#toolbar-container',
-            config: toolbarConfig,
-            mode: 'default', // or 'simple'
-        })
-    </script>
+    <div id="header">基础版 Monaco Editor</div>
+    <div id="root"></div>
+    <script src="./app.js"></script>
 </body>
 
 </html>
